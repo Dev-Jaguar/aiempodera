@@ -1,6 +1,13 @@
 import streamlit as st
 from menu import menu
 
+st.set_page_config(
+   page_title="AIEmpodera app",
+   page_icon="🤖",
+   layout="wide",
+   initial_sidebar_state="expanded",
+)
+
 #   FUNCIONES
 def confirmation():
     if st.session_state.password == "AIEmpodera":
