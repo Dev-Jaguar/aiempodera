@@ -10,12 +10,15 @@ st.set_page_config(
 
 #   FUNCIONES
 def confirmation():
-    if st.session_state.password == "AIEmpodera":
-        databaseUsers.append(st.session_state.name)
-        st.write("Welcome, ", st.session_state.name, "!👋")
-        print(databaseUsers)
-    else :
-        st.warning("Coloca una contraseña valida o un rol valido - ej: User")
+    if st.session_state.name is not None:
+        if st.session_state.password == "AIEmpodera":
+            databaseUsers.append(st.session_state.name)
+            st.write("Welcome, ", st.session_state.name, "!👋")
+            print(databaseUsers)
+        else :
+            st.warning("Coloca una contraseña valida o un rol valido - ej: User")
+    else:
+        st.warning("Coloca tu nombre, no seas vago")
 
 def set_role():
     # Función de devolución de llamada para guardar la selección de rol en el estado de la sesión

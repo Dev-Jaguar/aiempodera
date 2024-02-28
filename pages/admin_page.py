@@ -34,8 +34,8 @@ st.divider()
 
 uploaded_avatar = st.file_uploader("Upload your avatar", type=['.jpg', '.png'], accept_multiple_files=False)
 
-for uploaded_avatar in uploaded_avatar:
-    if uploaded_avatar is not None:
-        st.write("Name of the avatar: ", uploaded_avatar.name)
-        st.image(uploaded_avatar)
-    st.info("Enter the avatar with extention .jpg, .png")
+
+if uploaded_avatar is not None:
+    st.write("Name of the avatar: ", uploaded_avatar.name)
+    st.image(uploaded_avatar)
+st.info("Enter the avatar with extention .jpg, .png")
