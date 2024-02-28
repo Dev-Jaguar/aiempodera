@@ -18,4 +18,10 @@ st.header("Algunos videos 📹")
 
 col1, col2, col3 = st.columns(3)
 
-video_1 = st.components.v1.h
+video_1 = st.components.v1.html(url_video_1, height=600)
+
+st.write("\n")
+
+video_2 = st.components.v1.html(url_video_2, height=600)
+
+
