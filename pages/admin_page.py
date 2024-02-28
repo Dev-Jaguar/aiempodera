@@ -1,12 +1,49 @@
 import streamlit as st
+from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
 
 st.title("Hello, Admin")
 
-st.info("We will only admit the script in .txt")
-uploaded_files = st.file_uploader("Upload the script", type=['.txt'], accept_multiple_files=True)
+st.title("🦜🔗 Langchain - Script Generator")
 
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("Filename: ", uploaded_file.name)
+openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+
+
+def blog_outline(topic):
+    # Instantiate LLM model
+    llm = OpenAI(model_name="text-davinci-003", openai_api_key=openai_api_key)
+    # Prompt
+    template = "You are an experimentaded script writer, I want you to write me a family-friendly and neutral of 1 minute to 2 minutes maximum about {topic}."
+    prompt = PromptTemplate(input_variables=["topic"], template=template)
+    prompt_query = prompt.format(topic=topic)
+    # Run LLM model
+    response = llm(prompt_query)
+    # Print results
+    return st.info(response)
+
+
+with st.form("myform"):
+    topic_text = st.text_input("Enter prompt:", "")
+    submitted = st.form_submit_button("Submit")
+    if not openai_api_key:
+        st.info("Please add your OpenAI API key to continue.")
+    elif submitted:
+        blog_outline(topic_text)
+
+st.divider()
+
+st.info("We will only admit the script in .txt")
+uploaded_scripts = st.file_uploader("Upload your script", type=['.txt'], accept_multiple_files=True)
+
+for uploaded_script in uploaded_scripts:
+    bytes_data = uploaded_script.read()
+    st.write("Filename: ", uploaded_script.name)
     st.write("Content: ", bytes_data)
 
+st.divider()
+
+uploaded_avatar = st.file_uploader("Upload your avatar", type=['.jpg', '.png'], accept_multiple_files=False)
+
+for uploaded_avatar in uploaded_avatar:
+    st.write("Name of the avatar: ", uploaded_avatar)
+    st.image(uploaded_avatar)
