@@ -10,6 +10,10 @@ url_video_2 = """
 # SOME STUFF
 st.title("Mira algunos de nuestros videos de AIEmpodera 🎥")
 
+st.link_button("Hecho con :heart: desde :flag-co:", "https://www.tiktok.com/@aiempodera")
+
+st.divider()
+
 st.header("Algunos videos 📹")
 
 col1, col2, col3 = st.columns(3)
