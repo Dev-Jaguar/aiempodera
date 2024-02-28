@@ -13,7 +13,7 @@ def blog_outline(topic):
     # Instantiate LLM model
     llm = OpenAI(model_name="text-davinci-003", openai_api_key=openai_api_key)
     # Prompt
-    template = "You are an experimentaded script writer, I want you to write me a family-friendly and neutral of 1 minute to 2 minutes maximum about {topic}."
+    template = "You are an experimentaded script writer, I want you to write me a family-friendly and neutral of 1 minute to 2 minutes maximum script about {topic}."
     prompt = PromptTemplate(input_variables=["topic"], template=template)
     prompt_query = prompt.format(topic=topic)
     # Run LLM model
