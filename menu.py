@@ -2,10 +2,9 @@ import streamlit as st
 
 def authenticated_menu():
     # Muestra un menú de navegación para usuarios autenticados
-    st.sidebar.page_link("home.py", label="Cambiar cuentas")
-    if st.session_state.role in ["Admin"]:
+    if st.session_state.role in ["Admin"] and st.session_state.name != '':
         st.sidebar.page_link("pages/admin_page.py", label="Mira la base de datos! 📀")
-    elif st.session_state.role in ["User"]:
+    elif st.session_state.role in ["User"] and st.session_state.name != '':
         st.sidebar.page_link("pages/user_page.py", label="Mira nuestros videos! 📹")
 
 def unauthenticated_menu():
