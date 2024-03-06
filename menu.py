@@ -23,4 +23,5 @@ def menu():
 def menu_with_redirect():
     # Redirige a los usuarios a la página principal si no están conectados, de lo contrario, continúa para renderizar el menú de navegación
     if "role" not in st.session_state or st.session_state.role is None:
-        st.switch_page
+        st.switch_page("home.py")
+    menu()
