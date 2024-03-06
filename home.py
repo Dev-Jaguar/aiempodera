@@ -44,9 +44,4 @@ st.write("First enter your name and password to verify you 👇")
 # Confirmation methods
 st.text_input("Your name", key='name')
 st.text_input("Your password", key='password', type='password')
-selected_role_index = st.selectbox("Choose your role", range(len(roles)), format_func=lambda x: roles[x], placeholder="Choose User or Admin", key="selectRole")
-
-st.button("Sign Up", key='sign_button', on_click=confirmation)
-
-# ¡Renderiza el menú dinámico!
-menu()
+selected_role_index = st.selectbox("Choose your role", range(len(roles)), format_f
