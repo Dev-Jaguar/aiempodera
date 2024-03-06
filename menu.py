@@ -6,6 +6,8 @@ def authenticated_menu():
         st.sidebar.page_link("pages/admin_page.py", label="Mira la base de datos! 📀")
     elif st.session_state.role in ["User"] and st.session_state.name != '':
         st.sidebar.page_link("pages/user_page.py", label="Mira nuestros videos! 📹")
+    elif st.session_state.role in ["Super-Admin"] and st.session_state.name != '':
+        st.sidebar.page_link("pages/super_admin_page.py", label="🚷Solo para personal autorizado")
 
 def unauthenticated_menu():
     # Muestra un menú de navegación para usuarios no autenticados

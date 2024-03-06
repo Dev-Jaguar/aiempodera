@@ -16,8 +16,6 @@ st.divider()
 
 st.header("Algunos videos 📹")
 
-col1, col2, col3 = st.columns(3)
-
 video_1 = st.components.v1.html(url_video_1, height=600)
 
 st.write("\n")
