@@ -23,7 +23,7 @@ def blog_outline(topic):
 
 
 with st.form("myform"):
-    topic_text = st.text_input("Enter prompt:", "")
+    topic_text = st.text_input("Enter the topic:", "")
     submitted = st.form_submit_button("Submit")
     if not openai_api_key:
         st.info("Please add your OpenAI API key to continue.")
